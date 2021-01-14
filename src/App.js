@@ -1,16 +1,16 @@
 import React,{Component} from 'react'
-import { BrowserRouter } from 'react-router-dom';
-import Main from './components/MainComponent';
+import Home from './components/Home'
+import BrowserRouter from 'react'
 
 class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
-      <div className="App">
-        <Main />
-      </div>
-    </BrowserRouter>
+        <div>
+          <BrowserRouter>
+              <Home />
+          </BrowserRouter>
+        </div>
     );
   }
 }

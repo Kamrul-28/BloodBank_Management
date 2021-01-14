@@ -24,20 +24,20 @@ class Header extends Component {
         <Navbar dark expand="md">
             <div className="container">
                 <NavbarToggler onClick={this.toggleNav} />
-                <NavbarBrand className="mr-auto" href="/"><img src='assets/images/logo.png' height="30" width="41" alt='Ristorante Con Fusion' /></NavbarBrand>
+                <NavbarBrand className="mr-auto" href="/"><img src='assets/images/img-6.jpg' height="30" width="41" alt='BloodBank' className="navBrand"/></NavbarBrand>
                 <Collapse isOpen={this.state.isNavOpen} navbar>
                     <Nav navbar>
                     <NavItem>
-                        <NavLink className="nav-link"  to='/home'><span className="fa fa-home fa-lg"></span> Home</NavLink>
+                        <NavLink className="nav-link"  to='/home'><span className="fa fa-home fa-lg pr-1"></span> Home</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink className="nav-link" to='/aboutus'><span className="fa fa-info fa-lg"></span> About Us</NavLink>
+                        <NavLink className="nav-link" to='/aboutus'><span className="fa fa-info fa-lg pr-1"></span>Become a Donor</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink className="nav-link"  to='/menu'><span className="fa fa-list fa-lg"></span> Menu</NavLink>
+                        <NavLink className="nav-link"  to='/menu'><span className="fa fa-list fa-lg pr-1"></span>Donors</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg"></span> Contact Us</NavLink>
+                        <NavLink className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg pr-1"></span>Contact Us</NavLink>
                     </NavItem>
                     </Nav>
                 </Collapse>
@@ -46,9 +46,10 @@ class Header extends Component {
         <Jumbotron>
             <div className="container">
                 <div className="row row-header">
-                    <div className="col-12 col-sm-6">
-                        <h1>Ristorante con Fusion</h1>
-                        <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
+                    <div className="col-12">
+                        <h1>BloodBank Management system</h1>
+                        <p> Donate Blood | Make a Difference | Save life </p>
+
                     </div>
                 </div>
             </div>
