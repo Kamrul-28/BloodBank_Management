@@ -1553,3 +1553,9 @@ section {
   color: #fff;
   text-decoration: none;
 }
+
+/*Add donor section*/
+#addDonor{
+  background-size: cover;
+  padding-top: 12%;
+}

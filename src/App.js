@@ -1,16 +1,25 @@
 import React,{Component} from 'react'
-import Home from './components/Home'
-import BrowserRouter from 'react'
+import { BrowserRouter } from 'react-router-dom';
+import Router from "./components/Router";
+import Header from "./components/Header";
+import Banner from "./components/Banner";
+
 
 class App extends Component {
+   constructor() {
+       super();
+       this.state={}
+   }
 
-  render() {
+    render() {
     return (
-        <div>
-          <BrowserRouter>
-              <Home />
-          </BrowserRouter>
-        </div>
+        <BrowserRouter>
+            <div>
+                <Header />
+                <Router />
+
+            </div>
+        </BrowserRouter>
     );
   }
 }
