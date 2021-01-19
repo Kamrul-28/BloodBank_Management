@@ -11,7 +11,7 @@ class Donors extends Component {
                         <div class="row">
                         <div class="col-lg-4">
                             <div class="section-title" data-aos="fade-right">
-                            <h2>Services</h2>
+                            <h2>Donors</h2>
                             <p>Magnam dolores commodi suscipit nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
                             </div>
                         </div>

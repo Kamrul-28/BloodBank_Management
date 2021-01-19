@@ -769,6 +769,9 @@ section {
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
+#services{
+  padding-top: 10%;
+}
 .services .icon-box {
   text-align: center;
   padding: 40px 20px;
@@ -1031,6 +1034,11 @@ section {
 /*--------------------------------------------------------------
 # Team
 --------------------------------------------------------------*/
+#team{
+  padding-top: 10%;
+  background: #fff;
+  padding-bottom: 10%;
+}
 .team {
   background: #fff;
 }
@@ -1046,7 +1054,7 @@ section {
 .team .member .pic {
   overflow: hidden;
   width: 150px;
-  border-radius: 50%;
+  border-radius: 15%;
   margin: 0 auto 20px auto;
 }
 
@@ -1125,6 +1133,10 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+#contact{
+  padding-top: 10%;
+  background: #fff;
+}
 .contact .info {
   padding: 30px;
   width: 100%;
@@ -1557,5 +1569,17 @@ section {
 /*Add donor section*/
 #addDonor{
   background-size: cover;
-  padding-top: 12%;
+  padding-top: 10%;
+  padding-bottom: 7%;
+}
+
+/*Login section*/
+#login{
+  padding-top: 10%;
+  padding-bottom: 22%;
+}
+
+/*Blood Request section*/
+#bloodRequest{
+  padding-top: 10%;
 }

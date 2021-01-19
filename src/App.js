@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import { BrowserRouter } from 'react-router-dom';
 import Router from "./components/Router";
 import Header from "./components/Header";
-import Banner from "./components/Banner";
+import Footer from "./components/Footer"
 
 
 class App extends Component {
@@ -17,6 +17,7 @@ class App extends Component {
             <div>
                 <Header />
                 <Router />
+                <Footer />
 
             </div>
         </BrowserRouter>

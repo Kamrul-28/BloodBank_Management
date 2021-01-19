@@ -1,94 +1,58 @@
 import React, { Component } from 'react';
-
+import Kamrul from '../images/kamrul.jpg'
 class Team extends Component {
     
   render() {
     return(
         <div>
-                            <section id="team" class="team">
-                    <div class="container">
+            <section id="team" className="team">
+                    <div className="container">
 
-                        <div class="row">
-                        <div class="col-lg-4">
-                            <div class="section-title" data-aos="fade-right">
-                            <h2>Team</h2>
-                            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>
+                        <div className="row">
+                            <div className="col-lg-4">
+                                <div className="section-title" data-aos="fade-right">
+                                <h2>Team</h2>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="row">
+                            <div className="col-lg-8">
+                                <div className="row">
 
-                            <div class="col-lg-6">
-                                <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                                <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt="" /></div>
-                                <div class="member-info">
-                                    <h4>Walter White</h4>
-                                    <span>Chief Executive Officer</span>
-                                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                                    <div class="social">
-                                    <a href=""><i class="ri-twitter-fill"></i></a>
-                                    <a href=""><i class="ri-facebook-fill"></i></a>
-                                    <a href=""><i class="ri-instagram-fill"></i></a>
-                                    <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                                    <div className="col-lg-6">
+                                        <div className="member" data-aos="zoom-in" data-aos-delay="100">
+                                        <div className="pic"><img src={Kamrul} className="img-fluid"/></div>
+                                        <div className="member-info">
+                                            <h4>Md.Kamrul Hasan</h4>
+                                            <span>Student</span>
+                                            <p>Computer Science and Engineering Discipline  Khulna University</p>
+                                            <div className="social">
+                                                <a className="btn btn-social-icon btn-facebook" href=""><i className="fa fa-facebook"></i></a>
+                                                <a className="btn btn-social-icon btn-linkedin" href=""><i className="fa fa-linkedin"></i></a>
+                                                <a className="btn btn-social-icon btn-twitter" href=""><i className="fa fa-twitter"></i></a>
+                                                <a className="btn btn-social-icon" href=""><i className="fa fa-envelope-o"></i></a>
+                                            </div>
+                                        </div>
+                                        </div>
                                     </div>
-                                </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 mt-4 mt-lg-0">
-                                <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                                <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt="" /></div>
-                                <div class="member-info">
-                                    <h4>Sarah Jhonson</h4>
-                                    <span>Product Manager</span>
-                                    <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                                    <div class="social">
-                                    <a href=""><i class="ri-twitter-fill"></i></a>
-                                    <a href=""><i class="ri-facebook-fill"></i></a>
-                                    <a href=""><i class="ri-instagram-fill"></i></a>
-                                    <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                                    <div className="col-lg-6">
+                                        <div className="member" data-aos="zoom-in" data-aos-delay="100">
+                                            <div className="pic"><img src={Kamrul} className="img-fluid"/></div>
+                                            <div className="member-info">
+                                                <h4>Md.Kamrul Hasan</h4>
+                                                <span>Student</span>
+                                                <p>Computer Science and Engineering Discipline  Khulna University</p>
+                                                <div className="social">
+                                                    <a className="btn btn-social-icon btn-facebook" href=""><i className="fa fa-facebook"></i></a>
+                                                    <a className="btn btn-social-icon btn-linkedin" href=""><i className="fa fa-linkedin"></i></a>
+                                                    <a className="btn btn-social-icon btn-twitter" href=""><i className="fa fa-twitter"></i></a>
+                                                    <a className="btn btn-social-icon" href=""><i className="fa fa-envelope-o"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                </div>
-                            </div>
 
-                            <div class="col-lg-6 mt-4">
-                                <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                                <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt="" /></div>
-                                <div class="member-info">
-                                    <h4>William Anderson</h4>
-                                    <span>CTO</span>
-                                    <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                                    <div class="social">
-                                    <a href=""><i class="ri-twitter-fill"></i></a>
-                                    <a href=""><i class="ri-facebook-fill"></i></a>
-                                    <a href=""><i class="ri-instagram-fill"></i></a>
-                                    <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                                    </div>
                                 </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 mt-4">
-                                <div class="member" data-aos="zoom-in" data-aos-delay="400">
-                                <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt="" /></div>
-                                <div class="member-info">
-                                    <h4>Amanda Jepson</h4>
-                                    <span>Accountant</span>
-                                    <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                                    <div class="social">
-                                    <a href=""><i class="ri-twitter-fill"></i></a>
-                                    <a href=""><i class="ri-facebook-fill"></i></a>
-                                    <a href=""><i class="ri-instagram-fill"></i></a>
-                                    <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
 
                             </div>
-
-                        </div>
                         </div>
 
                     </div>
