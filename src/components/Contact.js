@@ -4,9 +4,20 @@ class Contact extends Component {
 
     constructor(props){
         super(props)
-        this.state = { name:'',contact:'',message:''}
+        this.state = {
+            name:'',
+            contact:'',
+            message:'',
+            touched: {
+                name:false,
+                message:false,
+                contact:false,
+
+            }
+        }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleBlur = this.handleBlur.bind(this);
     }
     handleSubmit(event){
         const {name,contact,message} = this.state
@@ -28,8 +39,34 @@ class Contact extends Component {
             [event.target.name] : event.target.value
         })
     }
+    handleBlur = (field) => (evt) => {
+        this.setState({
+            touched: { ...this.state.touched, [field]: true }
+        });
+    }
+
+    validate(contact,name,message) {
+        const errors = {
+            contact:'',name:'', message:''
+        };
+
+        const reg = /^\d+$/;
+        if (this.state.touched.contact && !reg.test(contact))
+            errors.contact = 'Contact Number should contain only numbers';
+
+        if(this.state.touched.message && !message)
+            errors.message = 'Message is required';
+
+        if(this.state.touched.name && !name)
+            errors.name = 'Name is required';
+
+
+        console.log(errors);
+        return errors;
+    }
 
   render() {
+      const errors = this.validate(this.state.contact,this.state.name,this.state.message);
     return(
         <div>
             <section id="contact" className="contact">
@@ -71,23 +108,47 @@ class Contact extends Component {
                                 <div className="col-md-6 form-group">
                                 <input type="text" name="name" className="form-control" id="name"
                                        placeholder="Your Name"
-                                       value = {this.state.blood}
+                                       value = {this.state.name}
+                                       valid={errors.name === ''}
+                                       invalid={errors.name !== ''}
+                                       onBlur={this.handleBlur('name')}
                                        onChange={this.handleChange}
                                 />
+                                    <p
+                                        style={{
+                                            color:"red","padding-top":"10px"
+                                        }}>
+                                        {errors.name} </p>
                                 <div className="validate"></div>
                                 </div>
                                 <div className="col-md-6 form-group">
                                 <input type="number" className="form-control" name="contact" id="email" placeholder="Your Contact No"
-                                       value = {this.state.blood}
+                                       value = {this.state.contact}
+                                       valid={errors.contact === ''}
+                                       invalid={errors.contact !== ''}
+                                       onBlur={this.handleBlur('contact')}
                                        onChange={this.handleChange}
                                 />
+                                    <p
+                                        style={{
+                                            color:"red","padding-top":"10px"
+                                        }}>
+                                        {errors.contact} </p>
                                 </div>
                             </div>
                             <div className="form-group">
                                 <textarea className="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"
-                                          value = {this.state.blood}
+                                          value = {this.state.message}
+                                          valid={errors.message === ''}
+                                          invalid={errors.message !== ''}
+                                          onBlur={this.handleBlur('message')}
                                           onChange={this.handleChange}
                                 ></textarea>
+                                <p
+                                    style={{
+                                        color:"red","padding-top":"10px"
+                                    }}>
+                                    {errors.message} </p>
                                 <div className="validate"></div>
                             </div>
                             <div className="mb-3">
@@ -95,7 +156,16 @@ class Contact extends Component {
                                 <div className="error-message"></div>
                                 <div className="sent-message">Your message has been sent. Thank you!</div>
                             </div>
-                            <div className="text-center"><button type="submit" onClick={this.handleSubmit}>Send Message</button></div>
+                                {errors.contact || errors.message || errors.name
+                                    ?
+                                    <div className="text-center">
+                                        <button style={{"opacity":"60%"}} type="submit" disabled={true}>Send Message</button>
+                                    </div>
+                                    :
+                                    <div className="text-center">
+                                        <button type="submit" onClick={this.handleSubmit}>Send Message</button>
+                                    </div>
+                                }
                             </form>
                         </div>
                         </div>

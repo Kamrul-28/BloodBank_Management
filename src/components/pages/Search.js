@@ -7,10 +7,16 @@ class Search extends Component {
             blood:'',
             location:'',
             showBlood:false,
-            showLocation:false
+            showLocation:false,
+            touched: {
+                blood:false,
+                location:false,
+
+            }
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleBlur = this.handleBlur.bind(this);
     }
 
     handleSubmit(event){
@@ -32,10 +38,33 @@ class Search extends Component {
             [event.target.name] : event.target.value
         })
     }
+
+
+    handleBlur = (field) => (evt) => {
+        this.setState({
+            touched: { ...this.state.touched, [field]: true }
+        });
+    }
+
+    validate(blood,location) {
+        const errors = {
+            blood:'',location:''
+        };
+
+        if(this.state.touched.blood && !blood)
+            errors.blood = 'Blood group is required';
+        if(this.state.touched.location && !location)
+            errors.location = 'Location is required';
+
+        console.log(errors);
+        return errors;
+    }
+
     render() {
+        const errors = this.validate(this.state.blood,this.state.location);
         return (
             <div>
-                <section id="login" className="d-flex align-items-center">
+                <section id="search" className="d-flex align-items-center">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-2" data-aos="fade-right">
@@ -80,6 +109,9 @@ class Search extends Component {
                                                 <select className="form-control" name="blood"
                                                         value = {this.state.blood}
                                                         onChange={this.handleChange}
+                                                        valid={errors.blood === ''}
+                                                        invalid={errors.blood !== ''}
+                                                        onBlur={this.handleBlur('blood')}
                                                 >
                                                     <option>----------Select----------</option>
                                                     <option>A+</option>
@@ -91,6 +123,11 @@ class Search extends Component {
                                                     <option>AB+</option>
                                                     <option>AB-</option>
                                                 </select>
+                                                <p
+                                                    style={{
+                                                        color:"red","padding-top":"10px"
+                                                    }}>
+                                                    {errors.blood} </p>
                                             </div>
                                         </div>
                                         : null
@@ -103,17 +140,37 @@ class Search extends Component {
                                             <input type="text" name="location" className="form-control" id="location"
                                                    placeholder="location"
                                                    value = {this.state.location}
+                                                   valid={errors.location === ''}
+                                                   invalid={errors.location !== ''}
+                                                   onBlur={this.handleBlur('location')}
                                                    onChange={this.handleChange}
                                             />
+                                            <p
+                                                style={{
+                                                    color:"red","padding-top":"10px"
+                                                }}>
+                                                {errors.location} </p>
                                         </div>
                                     </div>
                                         :null
                                     }
                                     {
                                         this.state.showBlood || this.state.showLocation ?
-                                    <div className="text-center">
-                                        <button onClick={this.handleSubmit} className="btn" style={{"background-color":"#00805d","color":"white"}} type="submit">Search</button>
-                                    </div>
+                                            errors.blood || errors.location
+                                                ?
+                                                <div className="text-center">
+                                                    <button className="btn" style={{
+                                                        "background-color": "#00805d",
+                                                        "color": "white",
+                                                        "opacity": "60%"
+                                                    }} disabled={true}>Submit
+                                                    </button>
+                                                </div>
+                                                :
+                                                <div className="text-center">
+                                                    <button onClick={this.handleSubmit} className="btn" style={{"background-color":"#00805d","color":"white"}} type="submit">Search</button>
+                                                </div>
+
                                             :null
                                     }
                                 </form>
