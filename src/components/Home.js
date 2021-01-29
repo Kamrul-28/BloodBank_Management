@@ -37,7 +37,6 @@ class Home extends Component {
             <div>
                 {/*Header Section*/}
                 <Banner />
-
                 {/*Main Section*/}
                 <main id="main">
                     <About />

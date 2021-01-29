@@ -1,58 +1,100 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class Donors extends Component {
-    
+    constructor(props) {
+        super(props);
+        this.state={
+            items:[],
+            filtered:[],
+        }
+    }
+    componentDidMount() {
+        fetch('http://127.0.0.1:8000/api/donors')
+            .then(res => res.json())
+            .then(json=>{
+                this.setState({
+                        items:json
+                    }
+                )
+            })
+
+    }
+    getKeyword = (event) => {
+        //console.log(event.target.value)
+        let keyword = event.target.value;
+        let upKeyword=keyword.toUpperCase();
+        console.log('')
+         let filtered = this.state.items.filter((item)=>{
+             return item.blood.indexOf(upKeyword) > -1
+         });
+        this.setState({
+            filtered
+        })
+        // console.log(filtered)
+    }
+
   render() {
+      let itemsFiltered = this.state.filtered;
+      let itemsWhole = this.state.items;
+      const newItems = itemsFiltered.length === 0 ? itemsWhole : itemsFiltered;
+
+      const card= newItems.map((item, index) => (
+          <div key={index} className="col-md-4 d-flex align-items-stretch">
+              <div  className="card mb-4">
+                  <div className="card-header"
+                       style={{"background-color":"#fff"}}>
+                      <h3><a>Blood Group :<span style={{"color":"red"}}> {item.blood}</span></a></h3>
+                  </div>
+                  <div className="card-body">
+                      <h5>Name : {item.name}</h5>
+                      <h5>Address : {item.address}</h5>
+                      <h5>Contact : {item.contact}</h5>
+                      <h5>Weight : {item.weight}</h5>
+                      <h5>Status : <span className="text-success">Available</span></h5>
+                      <div className="text-center">
+                          <Link to={{
+                              pathname: '/profile',
+                              id:item.id
+                          }}
+
+                          ><button className="btn"
+                                     style={{"background-color":"#00805d",
+                                         "color":"white" ,
+                                         "float":"right",
+                                         "margin-top":"20px"
+                                     }}
+                                     type="submit">View Profile</button>
+                          </Link>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          ))
+
     return(
         <div>
-                 <section id="services" className="services section-bg">
+                <section id="services" className="services section-bg">
                     <div className="container">
 
-                        <div class="row">
-                        <div class="col-lg-4">
-                            <div class="section-title" data-aos="fade-right">
-                            <h2>Donors</h2>
-                            <p>Magnam dolores commodi suscipit nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                        <div className="row">
+                            <div className="col-lg-3">
+                                <div className="section-title" data-aos="fade-right">
+                                     <h2>Donors</h2>
+                                </div>
+                            </div>
+                            <div className="col-lg-3">
+
+                            </div>
+                            <div className="col-lg-4 mr-auto">
+                                <div className="section-title" data-aos="fade-right">
+                                    <input name="blood" onChange={this.getKeyword} className="form-control" type="text" placeholder="Enter Blood Group"/>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-8">
-                            <div class="row">
-                            <div class="col-md-6 d-flex align-items-stretch">
-                                <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-                                <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                                <h4><a href="">Lorem Ipsum</a></h4>
-                                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-                                <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-                                <div class="icon"><i class="bx bx-file"></i></div>
-                                <h4><a href="">Sed ut perspiciatis</a></h4>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 d-flex align-items-stretch mt-4">
-                                <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
-                                <div class="icon"><i class="bx bx-tachometer"></i></div>
-                                <h4><a href="">Magni Dolores</a></h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 d-flex align-items-stretch mt-4">
-                                <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
-                                <div class="icon"><i class="bx bx-world"></i></div>
-                                <h4><a href="">Nemo Enim</a></h4>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-                                </div>
-                            </div>
-
-                            </div>
+                        <div className="row">
+                            {card}
                         </div>
-                        </div>
-
                     </div>
                 </section>
         </div>

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 
 class Banner extends Component {
     render() {
@@ -8,7 +9,7 @@ class Banner extends Component {
                     <div className="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
                         <h1>BloodBank Management System</h1>
                         <h2>Donate Blood  |  Make a difference  |  Save life</h2>
-                        <a href="#about" className="btn-get-started scrollto">Manage Blood</a>
+                        <Link to="/donors" className="btn-get-started scrollto">Manage Blood</Link>
                     </div>
                 </section>
             </div>

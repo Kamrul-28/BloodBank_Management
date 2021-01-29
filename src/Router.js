@@ -1,19 +1,23 @@
 import React, {Component} from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import AddDonor from "./pages/AddDonor";
-import Home from "./Home";
-import Contact from "./Contact";
-import Team from "./Team";
-import Donors from "./Donors"
-import Login from "./pages/Login";
-import BloodRequest from "./pages/BloodRequest";
-import Search from "./pages/Search";
+
+import AddDonor from "./components/pages/AddDonor";
+import Home from "./components/Home";
+import Contact from "./components/Contact";
+import Team from "./components/Team";
+import Donors from "./components/Donors"
+import Login from "./components/pages/Login";
+import BloodRequest from "./components/pages/BloodRequest";
+import Search from "./components/pages/Search";
+import EditProfile from "./components/pages/EditProfile";
+import Profile from "./components/pages/Profile";
 
 class Router extends Component {
     render() {
         return (
             <div>
                 <Switch>
+                    <Route path="/editProfile" component={EditProfile}/>
                     <Route path="/home" component={Home}/>
                     <Route path="/addDonor" component={AddDonor}/>
                     <Route path="/contact" component={Contact}/>
@@ -22,6 +26,7 @@ class Router extends Component {
                     <Route path="/login" component={Login}/>
                     <Route path="/bloodRequest" component={BloodRequest}/>
                     <Route path="/search" component={Search}/>
+                    <Route path="/:profile" component={Profile}/>
                     <Redirect to="/home" />
                 </Switch>
             </div>
