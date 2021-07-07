@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import Header from "./Header";
+import Footer from './Footer';
 
 class Donors extends Component {
     constructor(props) {
@@ -51,7 +53,13 @@ class Donors extends Component {
                       <h5>Address : {item.address}</h5>
                       <h5>Contact : {item.contact}</h5>
                       <h5>Weight : {item.weight}</h5>
-                      <h5>Status : <span className="text-success">Available</span></h5>
+                      {item.is_available==true
+                          ?
+                          <h5>Status : <span className="text-success">Available</span></h5>
+                          :
+                          <h5>Status : <span className="text-danger">Not Available</span></h5>
+                      }
+
                       <div className="text-center">
                           <Link to={{
                               pathname: '/profile',
@@ -74,6 +82,7 @@ class Donors extends Component {
 
     return(
         <div>
+            <Header />
                 <section id="services" className="services section-bg">
                     <div className="container">
 
@@ -97,6 +106,7 @@ class Donors extends Component {
                         </div>
                     </div>
                 </section>
+            <Footer />
         </div>
     );
   }

@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import Footer from '../Footer';
+import Header from '../Header';
 
 class Login extends Component {
     constructor(props){
@@ -73,6 +75,7 @@ class Login extends Component {
         const errors = this.validate(this.state.email,this.state.password);
         return (
             <div>
+                <Header />
                 <section id="login" className="d-flex align-items-center">
                     <div className="container">
                         <div className="row">
@@ -149,6 +152,7 @@ class Login extends Component {
                     </div>
 
                 </section>
+                <Footer />
             </div>
         );
     }

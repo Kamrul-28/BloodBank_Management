@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import Footer from '../Footer';
+import Header from '../Header';
 
 class Search extends Component {
     constructor(){
@@ -64,6 +66,7 @@ class Search extends Component {
         const errors = this.validate(this.state.blood,this.state.location);
         return (
             <div>
+                <Header />
                 <section id="search" className="d-flex align-items-center">
                     <div className="container">
                         <div className="row">
@@ -187,6 +190,7 @@ class Search extends Component {
                     </div>
 
                 </section>
+                <Footer />
             </div>
         );
     }

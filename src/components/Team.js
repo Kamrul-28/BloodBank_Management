@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import Kamrul from '../images/kamrul.jpg'
+import Footer from './Footer';
+import Header from './Header';
+
 class Team extends Component {
     
   render() {
     return(
         <div>
+            <Header />
             <section id="team" className="team">
                     <div className="container">
 
@@ -57,6 +61,7 @@ class Team extends Component {
 
                     </div>
                 </section>
+            <Footer />
         </div>
     );
   }

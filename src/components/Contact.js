@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Footer from './Footer';
+import Header from './Header';
 
 class Contact extends Component {
 
@@ -69,6 +71,7 @@ class Contact extends Component {
       const errors = this.validate(this.state.contact,this.state.name,this.state.message);
     return(
         <div>
+            <Header />
             <section id="contact" className="contact">
                     <div className="container">
                         <div className="row">
@@ -172,6 +175,7 @@ class Contact extends Component {
 
                     </div>
                 </section>
+            <Footer />
         </div>
     );
   }

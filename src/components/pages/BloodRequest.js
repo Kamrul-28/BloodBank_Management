@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import Footer from '../Footer';
+import Header from '../Header';
 
 class BloodRequest extends Component {
 
@@ -80,6 +82,7 @@ class BloodRequest extends Component {
         const errors = this.validate(this.state.contact,this.state.blood,this.state.location,this.state.patient,this.state.diseases);
         return (
             <div>
+                <Header />
                 <section id="bloodRequest" className="d-flex align-items-center">
                     <div className="container">
                         <div className="row">
@@ -207,6 +210,7 @@ class BloodRequest extends Component {
                     </div>
 
                 </section>
+                <Footer />
             </div>
         );
     }

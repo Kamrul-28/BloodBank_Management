@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-
+import Footer from '../Footer';
+import Header from '../Header';
 class AddDonor extends Component {
     constructor(props){
         super(props)
@@ -110,6 +111,7 @@ class AddDonor extends Component {
 
         return (
             <div>
+                <Header />
                 <section id="addDonor" className="d-flex align-items-center">
                         <div className="container">
                             <div className="row">
@@ -287,6 +289,7 @@ class AddDonor extends Component {
                         </div>
 
                 </section>
+                <Footer />
             </div>
         );
     }

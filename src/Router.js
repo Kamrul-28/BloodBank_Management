@@ -11,12 +11,14 @@ import BloodRequest from "./components/pages/BloodRequest";
 import Search from "./components/pages/Search";
 import EditProfile from "./components/pages/EditProfile";
 import Profile from "./components/pages/Profile";
+import Dashboard from "./components/admin/dashboard/dashboard";
 
 class Router extends Component {
     render() {
         return (
             <div>
                 <Switch>
+                    <Route path="/dashboard" component={Dashboard}/>
                     <Route path="/editProfile" component={EditProfile}/>
                     <Route path="/home" component={Home}/>
                     <Route path="/addDonor" component={AddDonor}/>

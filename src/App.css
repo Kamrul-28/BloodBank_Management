@@ -1589,3 +1589,12 @@ section {
   padding-top: 10%;
   padding-bottom: 17%;
 }
+
+/* ##########  ADMIN PANEL ############# */
+
+#wrapper {
+  padding: 20% 15% 15% 15% ;
+  display: flex;
+  width: 100%;
+  background-color: #f8f9fc;
+}

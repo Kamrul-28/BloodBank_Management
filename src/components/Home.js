@@ -32,10 +32,12 @@ class Home extends Component {
 
     }
 
+
     render(){
         return(
             <div>
                 {/*Header Section*/}
+                <Header />
                 <Banner />
                 {/*Main Section*/}
                 <main id="main">
@@ -46,6 +48,7 @@ class Home extends Component {
                     <Contact />
 
                 </main>
+                <Footer />
             </div>
 
         )
